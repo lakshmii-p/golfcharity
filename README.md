@@ -3,13 +3,13 @@
 
 > **Play. Win. Give Back.**
 
-GolfCharity is a modern full-stack web application that brings together golf, community engagement, and charitable giving. Players can track their golf performance, subscribe to monthly or yearly plans, participate in monthly prize draws, and support charitable organizations—all through a clean and intuitive platform.
+GolfCharity is a modern full-stack web application that combines golf score tracking, subscription management, monthly prize draws, and charitable giving into a single platform. Users can manage their golf performance, participate in monthly draws, and support charities through a clean and responsive interface.
 
 ---
 
 ## 🌐 Live Demo
 
-**Live Application:**  
+**Application:**  
 https://golfcharity-jwzs.vercel.app/
 
 **GitHub Repository:**  
@@ -17,26 +17,26 @@ https://github.com/lakshmii-p/golfcharity
 
 ---
 
+# 📖 Overview
+
+GolfCharity is designed to provide an engaging experience for golfers while supporting meaningful causes. Users can securely register, manage subscriptions, record Stableford golf scores, participate in prize draws, and explore charitable organizations from a single platform.
+
+The application also includes a dedicated admin dashboard for managing users, subscriptions, charities, draw operations, winner verification, and platform statistics.
+
+---
+
 ## 🔑 Demo Credentials
 
-### Admin Access
+### Admin
 
 ```text
 Email: admin@golfcharity.com
 Password: Admin@2026
 ```
 
-### User Access
+### User
 
 Create a new account using the **Sign Up** page to explore all user features.
-
----
-
-# 📖 Overview
-
-GolfCharity is designed to provide an engaging experience for golfers while supporting meaningful causes. Users can securely register, manage subscriptions, record Stableford golf scores, participate in monthly reward draws, and contribute to charities through a single platform.
-
-The application also includes a powerful admin dashboard for managing users, subscriptions, charities, draw operations, winner verification, and overall platform activity.
 
 ---
 
@@ -46,43 +46,42 @@ The application also includes a powerful admin dashboard for managing users, sub
 
 - Secure user registration and login
 - JWT-based authentication
-- Password encryption using bcrypt
+- Password hashing with bcrypt
 - Role-based access control
 
 ### 💳 Subscription Management
 
-- Monthly and yearly plans
-- Stripe Checkout integration
-- Billing portal
+- Monthly and yearly subscription plans
 - Subscription status management
+- Payment gateway configuration prepared through environment variables
 
 ### ⛳ Golf Score Management
 
-- Stableford score entry
+- Stableford score tracking
 - Rolling last 5 scores
 - Duplicate date validation
 - Edit and delete scores
 
-### 🎲 Monthly Draw System
+### 🎲 Draw System
 
-- Random draw generation
-- Algorithm-based draw mode
-- Draw simulation
-- Jackpot rollover
+- Monthly prize draws
+- Random and algorithm-based draw modes
+- Simulation mode
 - Automatic prize distribution
+- Jackpot rollover support
 
 ### ❤️ Charity Management
 
 - Browse charities
 - Search charities
-- Featured charity section
+- Featured charities
 - Charity events
 - Independent donations
 
 ### 🏆 Winner Verification
 
-- Proof upload
-- Admin approval/rejection
+- Upload proof of winning scores
+- Admin approval and rejection workflow
 - Payment status tracking
 
 ### 📊 Dashboards
@@ -93,7 +92,7 @@ The application also includes a powerful admin dashboard for managing users, sub
 - Score history
 - Charity information
 - Draw participation
-- Winnings summary
+- Winnings overview
 
 **Admin Dashboard**
 
@@ -102,7 +101,7 @@ The application also includes a powerful admin dashboard for managing users, sub
 - Charity management
 - Draw management
 - Winner verification
-- Platform statistics
+- Platform analytics
 
 ---
 
@@ -114,7 +113,7 @@ The application also includes a powerful admin dashboard for managing users, sub
 | Backend | Node.js, Express.js |
 | Database | Supabase (PostgreSQL) |
 | Authentication | JWT, bcrypt |
-| Payments | Stripe Checkout, Stripe Webhooks |
+| Payment | Payment gateway ready (configurable via environment variables) |
 | Deployment | Vercel |
 | Version Control | Git & GitHub |
 
@@ -148,7 +147,7 @@ git clone https://github.com/lakshmii-p/golfcharity.git
 cd golfcharity
 ```
 
-## Backend Setup
+## Backend
 
 ```bash
 cd backend
@@ -157,13 +156,13 @@ cp .env.example .env
 npm run dev
 ```
 
-Backend runs at:
+Backend runs on:
 
 ```text
 http://localhost:5000
 ```
 
-## Frontend Setup
+## Frontend
 
 ```bash
 cd frontend
@@ -172,7 +171,7 @@ cp .env.example .env
 npm run dev
 ```
 
-Frontend runs at:
+Frontend runs on:
 
 ```text
 http://localhost:5173
@@ -184,35 +183,26 @@ http://localhost:5173
 
 ### Supabase
 
-- Create a new Supabase project.
-- Run the `backend/supabase_schema.sql` script in the SQL Editor.
-- Add your Supabase credentials to the backend `.env` file.
+- Create a Supabase project.
+- Run `backend/supabase_schema.sql` in the SQL Editor.
+- Update the backend `.env` file with your Supabase credentials.
 
-### Stripe
+### Payment Gateway
 
-Configure Stripe in **Test Mode** by adding:
-
-- Secret Key
-- Publishable Key
-- Monthly Price ID
-- Yearly Price ID
-- Webhook Secret
-
-Update the environment variables before running the application.
+The project includes placeholder environment variables for payment gateway integration. Configure your preferred payment provider by updating the required environment variables before enabling online payment functionality.
 
 ---
 
 # 📱 Highlights
 
-- Modern responsive UI
-- Mobile-first design
-- Secure authentication
-- Stripe payment integration
+- Responsive, mobile-first design
+- Secure authentication and authorization
 - Golf score management
-- Monthly prize draw engine
-- Charity contribution system
-- Winner verification workflow
+- Monthly draw engine
+- Charity contribution workflow
+- Winner verification system
 - Comprehensive admin dashboard
+- Clean and modern user interface
 
 ---
 
@@ -228,6 +218,7 @@ GitHub: https://github.com/lakshmii-p
 
 This project is available for educational and portfolio purposes.
 ````
+
 
 
 
