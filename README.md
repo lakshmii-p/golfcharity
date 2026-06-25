@@ -1,135 +1,234 @@
-# GolfCharity — Full Stack App
 
-> Play. Win. Give Back.
+# 🏌️ GolfCharity
 
-A subscription-driven golf charity platform with prize draws, score tracking, and charity contributions.
+> **Play. Win. Give Back.**
 
----
-
-## 🚀 Quick Start (Local)
-
-### 1. Prerequisites
-- Node.js 18+
-- A Supabase account (free tier works)
-- A Stripe account (test mode)
+GolfCharity is a modern full-stack web application that brings together golf, community engagement, and charitable giving. Players can track their golf performance, subscribe to monthly or yearly plans, participate in monthly prize draws, and support charitable organizations—all through a clean and intuitive platform.
 
 ---
 
-### 2. Supabase Setup
-1. Go to [supabase.com](https://supabase.com) → Create new project
-2. Go to **SQL Editor** → paste contents of `backend/supabase_schema.sql` → Run
-3. Copy your **Project URL** and **service_role key** from Settings → API
+## 🌐 Live Demo
+
+**Live Application:**  
+https://golfcharity-jwzs.vercel.app/
+
+**GitHub Repository:**  
+https://github.com/lakshmii-p/golfcharity
 
 ---
 
-### 3. Stripe Setup
-1. Go to [stripe.com](https://stripe.com) → Dashboard
-2. Create two products:
-   - **Monthly Plan** → ₹9.99/month → copy price ID
-   - **Yearly Plan** → ₹89.99/year → copy price ID
-3. Copy your **Secret Key** and **Publishable Key** from Developers → API Keys
-4. For webhooks (optional for local): use [Stripe CLI](https://stripe.com/docs/stripe-cli)
+## 🔑 Demo Credentials
 
----
+### Admin Access
 
-### 4. Backend Setup
-
-```bash
-cd backend
-cp .env.example .env
-# Fill in your values in .env
-npm install
-npm run dev
+```text
+Email: admin@golfcharity.com
+Password: Admin@2026
 ```
 
-Backend runs on **http://localhost:5000**
+### User Access
+
+Create a new account using the **Sign Up** page to explore all user features.
 
 ---
 
-### 5. Frontend Setup
+# 📖 Overview
 
-```bash
-cd frontend
-cp .env.example .env
-# Fill in:
-# VITE_API_URL=http://localhost:5000/api
-# VITE_STRIPE_PUBLISHABLE_KEY=pk_test_...
-npm install
-npm run dev
-```
+GolfCharity is designed to provide an engaging experience for golfers while supporting meaningful causes. Users can securely register, manage subscriptions, record Stableford golf scores, participate in monthly reward draws, and contribute to charities through a single platform.
 
-Frontend runs on **http://localhost:5173**
+The application also includes a powerful admin dashboard for managing users, subscriptions, charities, draw operations, winner verification, and overall platform activity.
 
 ---
 
-### 6. Admin Access
-- Email: `admin@golfcharity.com`
-- Password: `Admin@123`
-- URL: `/admin`
+# ✨ Features
+
+### 👤 Authentication
+
+- Secure user registration and login
+- JWT-based authentication
+- Password encryption using bcrypt
+- Role-based access control
+
+### 💳 Subscription Management
+
+- Monthly and yearly plans
+- Stripe Checkout integration
+- Billing portal
+- Subscription status management
+
+### ⛳ Golf Score Management
+
+- Stableford score entry
+- Rolling last 5 scores
+- Duplicate date validation
+- Edit and delete scores
+
+### 🎲 Monthly Draw System
+
+- Random draw generation
+- Algorithm-based draw mode
+- Draw simulation
+- Jackpot rollover
+- Automatic prize distribution
+
+### ❤️ Charity Management
+
+- Browse charities
+- Search charities
+- Featured charity section
+- Charity events
+- Independent donations
+
+### 🏆 Winner Verification
+
+- Proof upload
+- Admin approval/rejection
+- Payment status tracking
+
+### 📊 Dashboards
+
+**User Dashboard**
+
+- Subscription details
+- Score history
+- Charity information
+- Draw participation
+- Winnings summary
+
+**Admin Dashboard**
+
+- User management
+- Subscription management
+- Charity management
+- Draw management
+- Winner verification
+- Platform statistics
 
 ---
 
-## 🌐 Deploy to Vercel
+# 🛠 Tech Stack
 
-### Backend
-1. Create new Vercel project → import `backend/` folder
-2. Set all env vars from `.env.example` in Vercel dashboard
-3. Framework: **Other** (uses `vercel.json`)
-4. Copy your deployed backend URL (e.g. `https://golfcharity-api.vercel.app`)
-
-### Frontend
-1. Create new Vercel project → import `frontend/` folder
-2. Set env vars:
-   - `VITE_API_URL=https://your-backend.vercel.app/api`
-   - `VITE_STRIPE_PUBLISHABLE_KEY=pk_test_...`
-3. Framework: **Vite**
-
-### Stripe Webhook (after deploy)
-1. Stripe Dashboard → Developers → Webhooks → Add endpoint
-2. URL: `https://your-backend.vercel.app/api/subscriptions/webhook`
-3. Events to listen: `checkout.session.completed`, `customer.subscription.updated`, `customer.subscription.deleted`, `invoice.payment_failed`
-4. Copy webhook signing secret → add as `STRIPE_WEBHOOK_SECRET` in Vercel
+| Category | Technologies |
+|----------|--------------|
+| Frontend | React, Vite, JavaScript, HTML5, CSS3 |
+| Backend | Node.js, Express.js |
+| Database | Supabase (PostgreSQL) |
+| Authentication | JWT, bcrypt |
+| Payments | Stripe Checkout, Stripe Webhooks |
+| Deployment | Vercel |
+| Version Control | Git & GitHub |
 
 ---
 
-## 📁 Project Structure
+# 📂 Project Structure
 
-```
+```text
 golfcharity/
-├── backend/
-│   ├── src/
-│   │   ├── controllers/     # Business logic
-│   │   ├── middleware/      # Auth, validation
-│   │   ├── routes/          # API routes
-│   │   └── utils/           # Supabase, email
-│   ├── supabase_schema.sql  # DB schema + seed data
-│   ├── vercel.json
-│   └── .env.example
 ├── frontend/
 │   ├── src/
-│   │   ├── components/      # Navbar, Footer, Admin layout
-│   │   ├── contexts/        # Auth context
-│   │   ├── pages/           # All pages + admin pages
-│   │   └── utils/           # API client
-│   ├── vercel.json
+│   ├── public/
 │   └── .env.example
+│
+├── backend/
+│   ├── src/
+│   ├── supabase_schema.sql
+│   └── .env.example
+│
 └── README.md
 ```
 
 ---
 
-## ✅ Features Implemented
+# 🚀 Getting Started
 
-- **Auth**: JWT-based register/login, role-based access (subscriber/admin)
-- **Subscriptions**: Stripe Checkout (monthly/yearly), billing portal, webhook lifecycle
-- **Scores**: 5-score rolling system, date deduplication, 1–45 Stableford validation
-- **Draw Engine**: Random + algorithmic (score-frequency weighted), simulation mode, jackpot rollover
-- **Prize Pool**: Auto-split (40/35/25%), multi-winner equal split
-- **Charities**: CRUD, search, featured spotlight, upcoming events
-- **Winner Verification**: Proof upload → Admin approve/reject → Mark paid
-- **Email Notifications**: Welcome, draw results, winner alerts, payment confirmation
-- **User Dashboard**: Scores, winnings, subscription, charity, participation summary
-- **Admin Panel**: Stats, user management, draw management, charity management, winner verification
-- **Public Pages**: Homepage, charities directory, draw results
-- **Mobile-first responsive design**
-- **Dark, modern UI** (no golf clichés)
+## Clone the Repository
+
+```bash
+git clone https://github.com/lakshmii-p/golfcharity.git
+cd golfcharity
+```
+
+## Backend Setup
+
+```bash
+cd backend
+npm install
+cp .env.example .env
+npm run dev
+```
+
+Backend runs at:
+
+```text
+http://localhost:5000
+```
+
+## Frontend Setup
+
+```bash
+cd frontend
+npm install
+cp .env.example .env
+npm run dev
+```
+
+Frontend runs at:
+
+```text
+http://localhost:5173
+```
+
+---
+
+# ⚙️ Configuration
+
+### Supabase
+
+- Create a new Supabase project.
+- Run the `backend/supabase_schema.sql` script in the SQL Editor.
+- Add your Supabase credentials to the backend `.env` file.
+
+### Stripe
+
+Configure Stripe in **Test Mode** by adding:
+
+- Secret Key
+- Publishable Key
+- Monthly Price ID
+- Yearly Price ID
+- Webhook Secret
+
+Update the environment variables before running the application.
+
+---
+
+# 📱 Highlights
+
+- Modern responsive UI
+- Mobile-first design
+- Secure authentication
+- Stripe payment integration
+- Golf score management
+- Monthly prize draw engine
+- Charity contribution system
+- Winner verification workflow
+- Comprehensive admin dashboard
+
+---
+
+# 👩‍💻 Author
+
+**Lakshmi P**
+
+GitHub: https://github.com/lakshmii-p
+
+---
+
+# 📄 License
+
+This project is available for educational and portfolio purposes.
+````
+
+
+
+
